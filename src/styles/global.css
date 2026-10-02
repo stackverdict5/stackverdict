@@ -170,3 +170,47 @@ footer {
 	color: #94a3b8 !important;
 	border-top: 1px solid #1e293b !important;
 }
+/* Prilagođavanje za 100% tamnu temu bez belih površina */
+html,
+body,
+main,
+article,
+section {
+	background-color: #0b0f17 !important;
+	color: #e2e8f0 !important;
+}
+
+/* Izbacivanje bele pozadine sa svih kontejnera i kartica */
+div,
+p,
+span,
+li,
+ul {
+	color: #cbd5e1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #f8fafc !important;
+}
+
+header {
+	background-color: rgba(11, 15, 23, 0.9) !important;
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+header a {
+	color: #94a3b8 !important;
+}
+
+header a:hover,
+header a.active {
+	color: #ffffff !important;
+	border-bottom-color: #3b82f6 !important;
+}
+
+footer {
+	background-color: #0b0f17 !important;
+	color: #94a3b8 !important;
+	border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
