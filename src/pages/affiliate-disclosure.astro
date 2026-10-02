@@ -1,32 +1,109 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="Affiliate Disclosure"
-	description="Transparency and affiliate relationship disclosure for StackVerdict."
-	pubDate={new Date('October 01 2026')}
->
-	<h1>Affiliate Disclosure</h1>
-	<p><em>Last updated: October 2026</em></p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Affiliate Disclosure - ${SITE_TITLE}`} description="StackVerdict affiliate partnership disclosure and monetization policy." />
+		<style is:global>
+			body {
+				background-color: #0b0f17 !important;
+				color: #cbd5e1 !important;
+			}
+		</style>
+		<style>
+			main {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			.policy-card {
+				background: rgba(17, 24, 39, 0.8);
+				backdrop-filter: blur(12px);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 16px;
+				padding: 2.5em;
+				box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+			}
+			h1 {
+				font-size: 2.2em;
+				color: #f8fafc;
+				margin-top: 0;
+				margin-bottom: 0.2em;
+			}
+			.subtitle {
+				color: #94a3b8;
+				font-size: 0.95em;
+				margin-bottom: 2em;
+				border-bottom: 1px solid #1e293b;
+				padding-bottom: 1em;
+			}
+			h2 {
+				color: #60a5fa;
+				font-size: 1.3em;
+				margin-top: 1.5em;
+			}
+			p, li {
+				line-height: 1.7;
+				color: #cbd5e1;
+				font-size: 1em;
+			}
+			.highlight-box {
+				background: rgba(37, 99, 235, 0.1);
+				border-left: 4px solid #2563eb;
+				padding: 1.2em 1.5em;
+				border-radius: 0 8px 8px 0;
+				margin: 1.5em 0;
+			}
+			.highlight-box p {
+				margin: 0;
+				color: #93c5fd;
+				font-weight: 500;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="policy-card">
+				<h1>Affiliate Disclosure</h1>
+				<div class="subtitle">Last updated: August 2026</div>
 
-	<p>
-		Transparency is extremely important to us at <strong>StackVerdict</strong>. We believe in being 100% upfront about how this website is funded.
-	</p>
+				<div class="highlight-box">
+					<p>💡 TL;DR: We may earn a commission when you purchase tools through our links. This never impacts our ratings or increases your cost.</p>
+				</div>
 
-	<h2>Affiliate Links</h2>
-	<p>
-		Some of the links on StackVerdict are "affiliate links." This means that if you click on a link and purchase a paid subscription or product from that software vendor, StackVerdict may earn a small referral commission at <strong>no extra cost to you</strong>.
-	</p>
-	<p>
-		In fact, using our links sometimes provides you with exclusive discounts or extended trial periods negotiated for our readers.
-	</p>
+				<h2>Transparency First</h2>
+				<p>
+					At <strong>StackVerdict</strong>, independence and reader trust are our top priorities. To keep our benchmarks, in-depth code testing, and reviews completely free to read, we participate in various affiliate marketing programs.
+				</p>
 
-	<h2>Editorial Integrity</h2>
-	<p>
-		Our affiliate relationships do <strong>not</strong> influence our editorial content, software ratings, or product comparisons. We only recommend software, AI models, and tools that we have genuinely tested and believe provide real value to developers.
-	</p>
-	<p>
-		Thank you for supporting StackVerdict by using our links — it allows us to keep publishing high-quality, free guides for the developer community!
-	</p>
-</Layout>
+				<h2>How Affiliate Links Work</h2>
+				<p>
+					Some of the outbound links on this website (such as links to Cursor, GitHub Copilot, JetBrains, hosting providers, or SaaS platforms) are affiliate links. 
+					If you click on one of these links and sign up or purchase a paid subscription, StackVerdict may receive a financial referral fee or commission.
+				</p>
+
+				<h2>Editorial Independence Guarantee</h2>
+				<p>
+					Our monetization model strictly follows these core rules:
+				</p>
+				<ul>
+					<li><strong>No Paid Reviews:</strong> Software vendors cannot pay us for a higher score or a favorable review.</li>
+					<li><strong>Objective Benchmarks:</strong> All tool ratings are based on measurable criteria like latency, accuracy, and price-to-performance ratio.</li>
+					<li><strong>Same Price for You:</strong> Using our affiliate links never incurs any extra cost to you. In many cases, our partnerships provide exclusive discounts or extended trial periods.</li>
+				</ul>
+
+				<h2>Questions?</h2>
+				<p>
+					If you have any questions regarding our affiliate relationships or review methodology, feel free to reach out via our contact channels.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,36 +1,95 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="Privacy Policy"
-	description="Privacy policy and data collection details for StackVerdict."
-	pubDate={new Date('October 01 2026')}
->
-	<h1>Privacy Policy</h1>
-	<p><em>Last updated: October 2026</em></p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Privacy Policy - ${SITE_TITLE}`} description="StackVerdict privacy policy and data protection disclosures." />
+		<style is:global>
+			body {
+				background-color: #0b0f17 !important;
+				color: #cbd5e1 !important;
+			}
+		</style>
+		<style>
+			main {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			.policy-card {
+				background: rgba(17, 24, 39, 0.8);
+				backdrop-filter: blur(12px);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 16px;
+				padding: 2.5em;
+				box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+			}
+			h1 {
+				font-size: 2.2em;
+				color: #f8fafc;
+				margin-top: 0;
+				margin-bottom: 0.2em;
+			}
+			.subtitle {
+				color: #94a3b8;
+				font-size: 0.95em;
+				margin-bottom: 2em;
+				border-bottom: 1px solid #1e293b;
+				padding-bottom: 1em;
+			}
+			h2 {
+				color: #60a5fa;
+				font-size: 1.3em;
+				margin-top: 1.5em;
+			}
+			p, li {
+				line-height: 1.7;
+				color: #cbd5e1;
+				font-size: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="policy-card">
+				<h1>Privacy Policy</h1>
+				<div class="subtitle">Last updated: August 2026</div>
 
-	<p>
-		At <strong>StackVerdict</strong> (accessible from stackverdict.netlify.app), protecting reader privacy is one of our main priorities. This Privacy Policy outlines the types of information collected and recorded by our site.
-	</p>
+				<p>
+					Welcome to <strong>StackVerdict</strong>. Your privacy is critically important to us. This Privacy Policy outlines the types of personal information collected when you use our site and how we safeguard your data.
+				</p>
 
-	<h2>Information We Collect</h2>
-	<p>
-		StackVerdict is built as a static JAMstack site hosted on Netlify. We do not collect personal identification information (PII) like names, phone numbers, or passwords unless you voluntarily submit them via a contact or newsletter subscription form.
-	</p>
+				<h2>Information We Collect</h2>
+				<p>
+					We minimize data collection to ensure a privacy-first browsing experience:
+				</p>
+				<ul>
+					<li><strong>Analytics Data:</strong> We may collect non-identifiable usage statistics (e.g., browser type, referring domain, pages visited) to optimize site performance.</li>
+					<li><strong>Newsletter Signups:</strong> If you voluntarily subscribe to our newsletter, we collect your email address solely to deliver tech updates. You can unsubscribe at any time.</li>
+				</ul>
 
-	<h2>Log Files & Analytics</h2>
-	<p>
-		Like most websites, StackVerdict utilizes standard server log files and lightweight web analytics (e.g., Netlify Analytics / Google Analytics) to analyze trends, administer the site, and track user navigation on the site. This data includes IP addresses, browser types, ISP provider details, and page visitation metrics, none of which are linked to personally identifiable information.
-	</p>
+				<h2>Cookies and Tracking Technologies</h2>
+				<p>
+					StackVerdict uses cookies to analyze traffic patterns and track affiliate link clicks. Affiliate networks (such as PartnerStack or Impact) use cookies to attribute referrals so we receive credit if you sign up for a service.
+				</p>
 
-	<h2>Cookies & Web Beacons</h2>
-	<p>
-		StackVerdict may use basic cookies to store user preferences and optimize site responsiveness. Third-party affiliate partners (such as PartnerStack or Impact) may use cookies on their end to track referral traffic when you click on an outbound software link.
-	</p>
+				<h2>Third-Party Links</h2>
+				<p>
+					Our site contains links to third-party developer tools and platforms. We do not control or take responsibility for the privacy practices or content of external websites. We encourage you to read their respective privacy policies.
+				</p>
 
-	<h2>Contact Us</h2>
-	<p>
-		If you have additional questions or require more information about our Privacy Policy, feel free to reach out to us at <code>contact@stackverdict.com</code>.
-	</p>
-</Layout>
+				<h2>Data Rights & Contact</h2>
+				<p>
+					If you have questions about your privacy or wish to request data removal regarding email subscriptions, please contact us.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
