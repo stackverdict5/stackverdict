@@ -139,3 +139,27 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+/* Dark theme overrides za Header, Footer i pozadinu */
+body {
+	background-color: #0b0f17 !important;
+	color: #e2e8f0 !important;
+}
+
+header {
+	background-color: #0b0f17 !important;
+	border-bottom: 1px solid #1e293b !important;
+}
+
+header a {
+	color: #e2e8f0 !important;
+}
+
+header a.active {
+	border-bottom-color: #2563eb !important;
+}
+
+footer {
+	background-color: #0b0f17 !important;
+	color: #94a3b8 !important;
+	border-top: 1px solid #1e293b !important;
+}
