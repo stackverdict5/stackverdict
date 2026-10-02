@@ -4,32 +4,6 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
----
-
-<!doctype html>
-<html lang="en">Apsolutno, hajdemo redizajnirati i glavnu **Blog** stranicu (`src/pages/blog/index.astro`) da se savršeno uklapa u tamni estetski stil sa grid karticama, efektima stakla (glassmorphism) i sjajnim hover animacijama!
-
-Evo kompletnog novog koda za **Blog** stranicu.
-
----
-
-### Korak 1: Izmena `src/pages/blog/index.astro`
-
-1. Otvori fajl **`src/pages/blog/index.astro`** u VS Code-u.
-2. Zameni sav postojeći kod sledećim kodom:
-
-```astro
----
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -39,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead ${SITE_TITLE}`} & - Reviews description="{SITE_DESCRIPTION}" title="{`Blog"/>
+		<BaseHead title={`Blog & Reviews - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style is:global>
 			body {
 				background-color: #0b0f17 !important;
@@ -129,7 +103,7 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<Header/>
+		<Header />
 		<main>
 			<div class="blog-header">
 				<h1>All Reviews & Verdicts</h1>
@@ -161,6 +135,6 @@ const posts = (await getCollection('blog')).sort(
 				</ul>
 			</section>
 		</main>
-		<Footer/>
+		<Footer />
 	</body>
 </html>
