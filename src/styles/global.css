@@ -146,16 +146,23 @@ body {
 }
 
 header {
-	background-color: #0b0f17 !important;
-	border-bottom: 1px solid #1e293b !important;
+	background-color: rgba(11, 15, 23, 0.8) !important;
+	backdrop-filter: blur(12px);
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 header a {
-	color: #e2e8f0 !important;
+	color: #94a3b8 !important;
+	font-weight: 500;
+	transition: color 0.2s ease;
 }
 
-header a.active {
-	border-bottom-color: #2563eb !important;
+header a:hover, header a.active {
+	color: #ffffff !important;
+	border-bottom-color: #3b82f6 !important;
 }
 
 footer {
