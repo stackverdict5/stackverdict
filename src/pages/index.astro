@@ -15,43 +15,81 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			body {
+				background-color: #f8fafc; /* Blaga, meka siva pozadina umesto čisto bele */
+				color: #1e293b;
+			}
+			main {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2em 1em;
+			}
 			.hero {
 				text-align: center;
-				padding: 3em 1em 2em 1em;
-				background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+				padding: 3.5em 1.5em;
+				background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 				color: #ffffff;
-				border-radius: 12px;
-				margin-bottom: 3em;
-				box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+				border-radius: 16px;
+				margin-bottom: 2.5em;
+				box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
 			}
 			.hero h1 {
-				font-size: 2.8em;
-				margin-bottom: 0.2em;
+				font-size: 3em;
+				margin-bottom: 0.3em;
 				color: #ffffff;
+				font-weight: 800;
 			}
 			.hero p {
-				font-size: 1.2em;
+				font-size: 1.25em;
 				color: #94a3b8;
-				max-width: 600px;
+				max-width: 650px;
 				margin: 0 auto 1.5em auto;
+				line-height: 1.6;
 			}
 			.badge {
-				background: #3b82f6;
+				background: #2563eb;
 				color: white;
-				padding: 0.3em 0.8em;
+				padding: 0.35em 1em;
 				border-radius: 20px;
-				font-size: 0.85em;
-				font-weight: bold;
+				font-size: 0.8em;
+				font-weight: 700;
 				text-transform: uppercase;
-				letter-spacing: 1px;
+				letter-spacing: 1.2px;
 				display: inline-block;
-				margin-bottom: 1em;
+				margin-bottom: 1.2em;
 			}
+			
+			/* Features sekcija ispod hero-a */
+			.value-props {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5em;
+				margin-bottom: 3em;
+			}
+			.prop-card {
+				background: #ffffff;
+				padding: 1.5em;
+				border-radius: 12px;
+				border: 1px solid #e2e8f0;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+			}
+			.prop-card h3 {
+				margin-top: 0;
+				font-size: 1.1em;
+				color: #0f172a;
+			}
+			.prop-card p {
+				margin-bottom: 0;
+				font-size: 0.95em;
+				color: #64748b;
+				line-height: 1.5;
+			}
+
 			.section-title {
 				font-size: 1.8em;
 				margin-bottom: 1em;
-				border-bottom: 2px solid #e2e8f0;
-				padding-bottom: 0.3em;
+				color: #0f172a;
+				font-weight: 700;
 			}
 			.posts-grid {
 				display: grid;
@@ -63,20 +101,21 @@ const posts = (await getCollection('blog')).sort(
 			.post-card {
 				background: #ffffff;
 				border: 1px solid #e2e8f0;
-				border-radius: 8px;
-				padding: 1.5em;
+				border-radius: 12px;
+				padding: 1.8em;
 				transition: transform 0.2s ease, box-shadow 0.2s ease;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 			}
 			.post-card:hover {
 				transform: translateY(-4px);
-				box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+				box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.1);
 			}
 			.post-card h3 {
-				margin: 0 0 0.5em 0;
-				font-size: 1.3em;
+				margin: 0 0 0.6em 0;
+				font-size: 1.35em;
 			}
 			.post-card h3 a {
 				color: #0f172a;
@@ -86,15 +125,18 @@ const posts = (await getCollection('blog')).sort(
 				color: #2563eb;
 			}
 			.post-card p {
-				color: #64748b;
+				color: #475569;
 				font-size: 0.95em;
-				line-height: 1.5;
+				line-height: 1.6;
 				margin-bottom: 1.5em;
 			}
 			.read-more {
-				font-weight: bold;
+				font-weight: 700;
 				color: #2563eb;
 				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
 			}
 		</style>
 	</head>
@@ -105,12 +147,28 @@ const posts = (await getCollection('blog')).sort(
 			<section class="hero">
 				<span class="badge">Developer Tools & SaaS Reviews</span>
 				<h1>StackVerdict</h1>
-				<p>Unbiased, hands-on comparisons of AI coding assistants, developer software, and cloud infrastructure.</p>
+				<p>Independent, benchmarks-driven reviews of AI coding assistants, developer software, and cloud infrastructure.</p>
+			</section>
+
+			<!-- Sekcija sa prednostima / Tekstualni uvod -->
+			<section class="value-props">
+				<div class="prop-card">
+					<h3>⚡ Hands-on Benchmarks</h3>
+					<p>We test context windows, latency, and real-world accuracy across complex codebases.</p>
+				</div>
+				<div class="prop-card">
+					<h3>🔍 Transparent Analysis</h3>
+					<p>Detailed breakdowns of pricing plans, limitations, and hidden tier boundaries.</p>
+				</div>
+				<div class="prop-card">
+					<h3>🛡️ Unbiased Reviews</h3>
+					<p>Editorial independence comes first. Vendor sponsorship never influences our ratings.</p>
+				</div>
 			</section>
 
 			<!-- Najnovije Recenzije -->
 			<section>
-				<h2 class="section-title">Latest Verdicts & Reviews</h2>
+				<h2 class="section-title">Latest Verdicts & Deep Dives</h2>
 				<ul class="posts-grid">
 					{
 						posts.map((post) => (
@@ -121,7 +179,7 @@ const posts = (await getCollection('blog')).sort(
 									</h3>
 									<p>{post.data.description}</p>
 								</div>
-								<a href={`/blog/${post.slug}/`} class="read-more">Read Review &rarr;</a>
+								<a href={`/blog/${post.slug}/`} class="read-more">Read Full Verdict &rarr;</a>
 							</li>
 						))
 					}
