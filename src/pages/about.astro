@@ -1,36 +1,144 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="About StackVerdict"
-	description="Learn about our mission, software evaluation process, and editorial standards at StackVerdict."
-	pubDate={new Date('October 01 2026')}
->
-	<p>
-		Welcome to <strong>StackVerdict</strong> — your trusted source for unbiased, hands-on reviews, side-by-side comparisons, and deep dives into modern developer tools, AI coding assistants, and SaaS software.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About - ${SITE_TITLE}`} description="Learn about our mission, editorial standards, and how we test developer tools." />
+		<style is:global>
+			body {
+				background-color: #0b0f17 !important;
+				color: #cbd5e1 !important;
+			}
+		</style>
+		<style>
+			main {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			.about-hero {
+				text-align: center;
+				padding: 3em 1.5em;
+				background: radial-gradient(circle at top, rgba(37, 99, 235, 0.15) 0%, rgba(15, 23, 42, 0) 70%),
+				            linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+				border-radius: 16px;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				margin-bottom: 2.5em;
+				box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+			}
+			.about-hero h1 {
+				font-size: 2.5em;
+				margin-bottom: 0.3em;
+				background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			.about-hero p {
+				color: #94a3b8;
+				font-size: 1.15em;
+				max-width: 600px;
+				margin: 0 auto;
+				line-height: 1.6;
+			}
+			.values-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 1.5em;
+				margin: 2em 0 3em 0;
+			}
+			.value-card {
+				background: rgba(17, 24, 39, 0.8);
+				backdrop-filter: blur(12px);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 12px;
+				padding: 1.5em;
+			}
+			.value-card h3 {
+				color: #60a5fa;
+				margin-top: 0;
+				font-size: 1.2em;
+			}
+			.value-card p {
+				color: #94a3b8;
+				font-size: 0.95em;
+				line-height: 1.5;
+				margin-bottom: 0;
+			}
+			.process-section {
+				background: rgba(15, 23, 42, 0.6);
+				border-left: 4px solid #2563eb;
+				padding: 1.5em 2em;
+				border-radius: 0 12px 12px 0;
+				margin: 2em 0;
+			}
+			.process-section h2 {
+				color: #f8fafc;
+				margin-top: 0;
+			}
+			.process-section ol {
+				color: #cbd5e1;
+				padding-left: 1.2em;
+				line-height: 1.8;
+			}
+			h2 {
+				color: #f8fafc;
+			}
+			p {
+				line-height: 1.7;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="about-hero">
+				<h1>Engineered for Clarity</h1>
+				<p>Helping developers, engineering leads, and technical founders choose the right AI and software stack without the marketing fluff.</p>
+			</div>
 
-	<h2>Our Mission</h2>
-	<p>
-		The modern software ecosystem moves extremely fast. With hundreds of new AI tools, IDE plugins, and productivity platforms launching every month, developers and tech teams waste valuable time trying to figure out which tools actually deliver on their promises.
-	</p>
-	<p>
-		At StackVerdict, our goal is simple: <strong>cut through the marketing hype and provide honest, practical analysis</strong> to help indie hackers, software engineers, and engineering teams build their ideal tech stack with confidence.
-	</p>
+			<h2>Why StackVerdict Exists</h2>
+			<p>
+				The modern developer ecosystem is saturated with high-velocity AI tools, IDE plugins, and DevOps platforms. 
+				Most reviews online are either superficial promotional summaries or copy-pasted product documentation. 
+				<strong>StackVerdict</strong> was founded to bridge the gap between marketing promises and real-world developer benchmarks.
+			</p>
 
-	<h2>How We Evaluate Tools</h2>
-	<p>
-		We don't just rehash feature lists from vendor homepages. Our review methodology is built on:
-	</p>
-	<ul>
-		<li><strong>Real-World Testing:</strong> Deploying tools in actual production workflows and development environments.</li>
-		<li><strong>Performance & Context Benchmarks:</strong> Testing speed, accuracy, context windows, and IDE latency.</li>
-		<li><strong>Pricing Transparency:</strong> Evaluating free tiers, tier limitations, and total cost of ownership for solo developers vs. teams.</li>
-	</ul>
+			<div class="values-grid">
+				<div class="value-card">
+					<h3>🎯 Real Workloads</h3>
+					<p>We test tools inside real-world codebases, evaluating multi-file refactoring, latency, and context limitations.</p>
+				</div>
+				<div class="value-card">
+					<h3>🛡️ Unbiased Testing</h3>
+					<p>Sponsorships never alter our conclusions. If a tool fails under load or hallucinations spike, we report it directly.</p>
+				</div>
+				<div class="value-card">
+					<h3>💡 Cost Efficiency</h3>
+					<p>We break down pricing tiers, API usage costs, and seat limits to ensure your team gets maximum ROI.</p>
+				</div>
+			</div>
 
-	<h2>Editorial Independence</h2>
-	<p>
-		While StackVerdict participates in affiliate marketing programs (read our full <a href="/affiliate-disclosure">Affiliate Disclosure</a>), our opinions and rankings are strictly independent. Software companies cannot pay us for a positive review or higher placement on our listicles.
-	</p>
-</Layout>
+			<div class="process-section">
+				<h2>Our Review Methodology</h2>
+				<ol>
+					<li><strong>Setup & Deployment:</strong> We configure each tool in standard production-like environments.</li>
+					<li><strong>Stress Testing:</strong> We push context windows and complex code completions to measure accuracy and drop-off.</li>
+					<li><strong>Verdict & Comparison:</strong> We compare performance against direct market competitors to provide clear recommendations.</li>
+				</ol>
+			</div>
+
+			<h2>Affiliate & Disclosure Policy</h2>
+			<p>
+				To keep our content free and support our testing infrastructure, we participate in affiliate programs. 
+				When you sign up or purchase through links on StackVerdict, we may earn a commission at no additional cost to you. 
+				However, our editorial choices remain completely independent.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
