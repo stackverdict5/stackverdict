@@ -14,24 +14,28 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
+		<style is:global>
+			/* is:global osigurava da pregažemo sve podrazumevane bele pozadine */
 			body {
-				background-color: #f8fafc; /* Blaga, meka siva pozadina umesto čisto bele */
-				color: #1e293b;
+				background-color: #0b0f17 !important; /* Tamna moderna pozadina */
+				color: #e2e8f0 !important;
 			}
 			main {
 				max-width: 960px;
 				margin: 0 auto;
 				padding: 2em 1em;
 			}
+		</style>
+		<style>
 			.hero {
 				text-align: center;
 				padding: 3.5em 1.5em;
-				background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+				background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 				color: #ffffff;
 				border-radius: 16px;
 				margin-bottom: 2.5em;
-				box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+				border: 1px solid #1e293b;
+				box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 			}
 			.hero h1 {
 				font-size: 3em;
@@ -59,7 +63,6 @@ const posts = (await getCollection('blog')).sort(
 				margin-bottom: 1.2em;
 			}
 			
-			/* Features sekcija ispod hero-a */
 			.value-props {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -67,29 +70,31 @@ const posts = (await getCollection('blog')).sort(
 				margin-bottom: 3em;
 			}
 			.prop-card {
-				background: #ffffff;
+				background: #111827;
 				padding: 1.5em;
 				border-radius: 12px;
-				border: 1px solid #e2e8f0;
-				box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+				border: 1px solid #1f293d;
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 			}
 			.prop-card h3 {
 				margin-top: 0;
 				font-size: 1.1em;
-				color: #0f172a;
+				color: #f1f5f9;
 			}
 			.prop-card p {
 				margin-bottom: 0;
 				font-size: 0.95em;
-				color: #64748b;
+				color: #94a3b8;
 				line-height: 1.5;
 			}
 
 			.section-title {
 				font-size: 1.8em;
 				margin-bottom: 1em;
-				color: #0f172a;
+				color: #f8fafc;
 				font-weight: 700;
+				border-bottom: 1px solid #1e293b;
+				padding-bottom: 0.4em;
 			}
 			.posts-grid {
 				display: grid;
@@ -99,40 +104,40 @@ const posts = (await getCollection('blog')).sort(
 				padding: 0;
 			}
 			.post-card {
-				background: #ffffff;
-				border: 1px solid #e2e8f0;
+				background: #111827;
+				border: 1px solid #1f293d;
 				border-radius: 12px;
 				padding: 1.8em;
-				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 			}
 			.post-card:hover {
 				transform: translateY(-4px);
-				box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.1);
+				border-color: #3b82f6;
+				box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.4);
 			}
 			.post-card h3 {
 				margin: 0 0 0.6em 0;
 				font-size: 1.35em;
 			}
 			.post-card h3 a {
-				color: #0f172a;
+				color: #f8fafc;
 				text-decoration: none;
 			}
 			.post-card h3 a:hover {
-				color: #2563eb;
+				color: #60a5fa;
 			}
 			.post-card p {
-				color: #475569;
+				color: #94a3b8;
 				font-size: 0.95em;
 				line-height: 1.6;
 				margin-bottom: 1.5em;
 			}
 			.read-more {
 				font-weight: 700;
-				color: #2563eb;
+				color: #60a5fa;
 				text-decoration: none;
 				display: inline-flex;
 				align-items: center;
@@ -143,14 +148,12 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<!-- Hero Sekcija -->
 			<section class="hero">
 				<span class="badge">Developer Tools & SaaS Reviews</span>
 				<h1>StackVerdict</h1>
 				<p>Independent, benchmarks-driven reviews of AI coding assistants, developer software, and cloud infrastructure.</p>
 			</section>
 
-			<!-- Sekcija sa prednostima / Tekstualni uvod -->
 			<section class="value-props">
 				<div class="prop-card">
 					<h3>⚡ Hands-on Benchmarks</h3>
@@ -166,7 +169,6 @@ const posts = (await getCollection('blog')).sort(
 				</div>
 			</section>
 
-			<!-- Najnovije Recenzije -->
 			<section>
 				<h2 class="section-title">Latest Verdicts & Deep Dives</h2>
 				<ul class="posts-grid">
